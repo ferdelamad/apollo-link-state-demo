@@ -23,6 +23,13 @@ export const resolvers = {
 
       //return the new count - OPTIONAL
       return count;
+    },
+    setCount: (_parent, { count }, { cache }) => {
+      cache.writeData({
+        data: {
+          count
+        }
+      })
     }
   }
 }
