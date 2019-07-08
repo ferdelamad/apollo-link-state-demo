@@ -1,24 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
+import gql from 'graphql-tag'
+import { useQuery } from "react-apollo-hooks";
+
 import './App.css';
 
+import { DirectWrite } from './components/DirectWrite'
+import { Mutations } from './components/Mutations'
+
 function App() {
+
+  //initial test query
+  const countQuery = useQuery(
+    gql`
+      query Count {
+        count @client
+      }
+    `
+  );
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <h3>Query Test</h3>
+        <p>Count {countQuery.data.count}</p>
+      </div>
+      <div>
+        <DirectWrite />
+        <Mutations />
+      </div>
     </div>
   );
 }
