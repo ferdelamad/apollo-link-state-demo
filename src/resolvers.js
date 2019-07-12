@@ -1,4 +1,4 @@
-import { countQuery } from './queries';
+import { GET_COUNT } from './queries';
 
 export const resolvers = {
   Mutation: {
@@ -7,7 +7,7 @@ export const resolvers = {
       try {
         //try to get the data from the cache
         data = cache.readQuery({
-          query: countQuery
+          query: GET_COUNT
         })
       } catch(error) {
         console.log('Error: ', error);

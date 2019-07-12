@@ -32,7 +32,7 @@ export const Mutations = () => {
   let input;
 
   return (
-    <div>
+    <div style={{ backgroundColor: 'lightgrey'}}>
       <h3>Mutations</h3>
       <div>
         <h5>Increment count by one</h5>
